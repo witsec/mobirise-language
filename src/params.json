@@ -1,0 +1,9 @@
+{
+    "name": "Language v0.1",
+    "alias": "witsec-language",
+    "version": 0.1,
+    "minAppVersion": "4",
+    "appScript": true,
+	"description":"Specify the language of your website. <a href='https://witsec.nl'>Learn more...</a>",
+	"logo":"thumbnail.png"
+}
