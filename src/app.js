@@ -1,4 +1,4 @@
-(function(jQuery, mbrApp) {
+defineM("witsec-language", function(g, mbrApp, tr) {
     mbrApp.regExtension({
         name: "witsec-language",
         events: {
@@ -239,4 +239,4 @@
             }
         }
     })
-})(jQuery, mbrApp);
+}, ["jQuery", "mbrApp", "TR()"]);
