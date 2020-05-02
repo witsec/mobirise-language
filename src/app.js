@@ -25,10 +25,10 @@ defineM("witsec-language", function(g, mbrApp, tr) {
 						html:[
 							'<div class="form-group col-md-12">',
 							'<style>',
-							'#witsec-language option { background: #35444c; }',
+							'#witsec-language, #witsec-language option { background:#fff; color:#000; padding:0px; margin:0xp }',
 							'</style>',
 							'<label class="control-label">Site Language</label>',
-							'  <select id="witsec-language" name="witsec-language" class="form-control" style="color:#fff">',
+							'  <select id="witsec-language" name="witsec-language" class="form-control">',
 							'    <option value="">Not set</option>',
 							'    <option value="ab">Abkhazian</option>',
 							'    <option value="aa">Afar</option>',

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v4 (2020-05-02)
+
+- Updated dropdown menu color so it's readable in both Mobirise v4 and v5
+
 ## v3 (2020-03-14)
 
 - Fixed compatibility with Mobirise v5

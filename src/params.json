@@ -1,7 +1,7 @@
 {
-    "name": "Language v3",
+    "name": "Language v4",
     "alias": "witsec-language",
-    "version": 3,
+    "version": 4,
     "minAppVersion": "4.10.17",
     "appScript": true,
 	"description":"Specify the language of your website. <a href='https://witsec.nl'>Learn more...</a>",
