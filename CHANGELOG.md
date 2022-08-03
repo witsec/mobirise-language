@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v5 (2022-08-03)
+
+- The selected language is now stored using the same variable that Mobirise uses, which is much cleaner
+
 ## v4 (2020-05-02)
 
 - Updated dropdown menu color so it's readable in both Mobirise v4 and v5

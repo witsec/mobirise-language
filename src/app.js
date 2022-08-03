@@ -4,22 +4,19 @@ defineM("witsec-language", function(g, mbrApp, tr) {
         events: {
             load: function() {
                 var a = this;
-                a.addFilter("publishHTML", function(b) {
-					var c = a.projectSettings["witsec-language"] || "";
-
-					if (c) {
-						b = b.replace(/<html/i, '<html lang="' + c + '" ')
-					}
-
-					return b
-				});
-
 
 				// Add site settings
 				a.addFilter("sidebarProjectSettings",function(b){
-					var wl = a.projectSettings["witsec-language"] || "";
+					let wl = "";
 
-					var c = {
+					// Clean up an old config, if it's there
+					if (a.projectSettings["witsec-language"] !== undefined) {
+						wl = a.projectSettings["witsec-language"];
+						delete a.projectSettings["witsec-language"];
+					} else
+						wl = a.projectSettings["site_lang"] || "";
+
+					let c = {
 						title:"witsec",
 						name:"witsec-site-settings",
 						html:[
@@ -28,7 +25,7 @@ defineM("witsec-language", function(g, mbrApp, tr) {
 							'#witsec-language, #witsec-language option { background:#fff; color:#000; padding:0px; margin:0xp }',
 							'</style>',
 							'<label class="control-label">Site Language</label>',
-							'  <select id="witsec-language" name="witsec-language" class="form-control">',
+							'  <select id="witsec-language" class="form-control">',
 							'    <option value="">Not set</option>',
 							'    <option value="ab">Abkhazian</option>',
 							'    <option value="aa">Afar</option>',
@@ -229,12 +226,12 @@ defineM("witsec-language", function(g, mbrApp, tr) {
 						].join("\n")
 					};
 					b.push(c);
-					return b
+					return b;
 				});
 
 				// Save setting
 				a.$body.on("change", "#witsec-language", function() {
-                    a.projectSettings["witsec-language"] = a.$body.find("#witsec-language option:selected").val();
+					a.projectSettings["site_lang"] = a.$body.find("#witsec-language option:selected").val();
                 });
             }
         }
