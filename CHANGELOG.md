@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## v6 (2025-03-20)
+
+- Fixed issue with Mobirise v4, where the language attribute isn't set automatically (unlike v5 and after)
+
 ## v5 (2022-08-03)
 
 - The selected language is now stored using the same variable that Mobirise uses, which is much cleaner

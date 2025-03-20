@@ -1,12 +1,25 @@
-defineM("witsec-language", function(g, mbrApp, tr) {
-    mbrApp.regExtension({
-        name: "witsec-language",
-        events: {
-            load: function() {
-                var a = this;
+defineM("witsec-language", function (g, mbrApp, tr) {
+	mbrApp.regExtension({
+		name: "witsec-language",
+		events: {
+			load: function () {
+				var a = this;
+
+				// Insert the site language on Mobirise v4 (in v5 and after this is done automatically)
+				a.addFilter("publishHTML", function (html) {
+					if (Bridge.version.substr(0, 1) === "4") {
+						var lang = a.projectSettings["site_lang"] || "";
+
+						if (lang) {
+							html = html.replace(/<html/i, '<html lang="' + lang + '" ')
+						}
+					}
+
+					return html;
+				});
 
 				// Add site settings
-				a.addFilter("sidebarProjectSettings",function(b){
+				a.addFilter("sidebarProjectSettings", function (b) {
 					let wl = "";
 
 					// Clean up an old config, if it's there
@@ -17,9 +30,9 @@ defineM("witsec-language", function(g, mbrApp, tr) {
 						wl = a.projectSettings["site_lang"] || "";
 
 					let c = {
-						title:"witsec",
-						name:"witsec-site-settings",
-						html:[
+						title: "witsec",
+						name: "witsec-site-settings",
+						html: [
 							'<div class="form-group col-md-12">',
 							'<style>',
 							'#witsec-language, #witsec-language option { background:#fff; color:#000; padding:0px; margin:0xp }',
@@ -230,10 +243,10 @@ defineM("witsec-language", function(g, mbrApp, tr) {
 				});
 
 				// Save setting
-				a.$body.on("change", "#witsec-language", function() {
+				a.$body.on("change", "#witsec-language", function () {
 					a.projectSettings["site_lang"] = a.$body.find("#witsec-language option:selected").val();
-                });
-            }
-        }
-    })
+				});
+			}
+		}
+	})
 }, ["jQuery", "mbrApp", "TR()"]);
